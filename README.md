@@ -79,11 +79,37 @@ usage:
 >>> shortargs = ['a', 'b']
 # define long args
 >>> longargs = ['assign', 'bind']
-# create argument control
->>> arg_control = options(shortargs, longargs, sys.argv[1:])
+# create option control
+>>> optionCTRL = options(shortargs, longargs, sys.argv[1:])
 # get values
->>> actualargs, argcheck, argerror, falseargs = arg_control._argparse()
+>>> actualargs, argcheck, argerror, falseargs = optionCTRL._argparse()
 ```
 
 ## Extra features
 Added a function to query argument value.
+```console
+>>> help(options._what_is)
+
+Help on function _what_is_ in module optioner:
+
+_what_is_(self, arg: str)
+    Returns the value of the argument that is passed.
+
+    Args:
+        arg (str): argument you need the value of
+
+    Returns:
+        str | None_: returns value of argument or None
+```
+
+usage:
+```console
+>>> optionCTRL = options(shortargs, longargs, gotargs)
+>> optionCTRL._argparse()
+
+>>> optionCTRL._what_is_(shortargs[0])
+
+or 
+
+>>> optionCTRL._what_is_(longargs[0])
+```
