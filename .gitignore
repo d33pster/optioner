@@ -1,0 +1,4 @@
+dist*/
+src/optioner.egg-info/
+tests/
+pyproject.toml
