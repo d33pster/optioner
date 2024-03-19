@@ -84,3 +84,6 @@ usage:
 # get values
 >>> actualargs, argcheck, argerror, falseargs = arg_control._argparse()
 ```
+
+## Extra features
+Added a function to query argument value.
