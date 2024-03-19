@@ -59,3 +59,24 @@ class options:
                 self._argerror += 'not found.'
         
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
+    
+    def _what_is_(self, arg: str):
+        """
+        Returns the value of the argument that is passed.
+
+        Args:
+            arg (str): argument you need the value of
+
+        Returns:
+            str | None_: returns value of argument or None
+        """
+        if len(arg)>2:
+            arg = '--' + arg
+        else:
+            arg = '-' + arg
+        
+        for i in range(len(self._args)):
+            if self._args[i] == arg:
+                return self._args[i+1]
+        
+        return None
