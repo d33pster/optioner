@@ -97,9 +97,10 @@ _what_is_(self, arg: str)
 
     Args:
         arg (str): argument you need the value of
+        count (int | optional): no of values you are expecting. Default is one
 
     Returns:
-        str | None_: returns value of argument or None
+        str | tuple | None_: returns value of argument or None
 ```
 
 usage:
