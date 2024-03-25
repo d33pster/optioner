@@ -60,15 +60,16 @@ class options:
         
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
     
-    def _what_is_(self, arg: str):
+    def _what_is_(self, arg: str, count=1):
         """
         Returns the value of the argument that is passed.
 
         Args:
             arg (str): argument you need the value of
+            count (int | optional): no of values you are expecting. Default is one
 
         Returns:
-            str | None_: returns value of argument or None
+            str | tuple | None_: returns value of argument or None
         """
         if len(arg)>2:
             arg = '--' + arg
@@ -77,6 +78,16 @@ class options:
         
         for i in range(len(self._args)):
             if self._args[i] == arg:
-                return self._args[i+1]
+                
+                if i == len(self._args)-1:
+                    raise RuntimeError(f'OPTIONER: No Value provide for {self._args[i]}.')
+                elif i == len(self._args) - (count+1):
+                    raise RuntimeError(f'OPTIONER: EXPECTING {count} values for {self._args[i]}')
+                
+                result = []
+                for x in range(count):
+                    result.append(self._args[i+1+x])
+                
+                return tuple(result)
         
         return None
