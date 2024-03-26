@@ -1,11 +1,14 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: default
-title: Home
+title: Optioner
 nav_order: 1
-permalink: /home
+description: "Optioner jekyll themed instruction page"
+permalink: /
 ---
 
-# Hey aKSDBA
+# Optioner is a lightweight Argument Parser that can perform complicated tasks
+{: .fs-9 }
+
+With optioner you can get control over argument parsing, error handling and perform complicated tasks such as defining compulsory arguments while also having some arguments that can bypass the compulsion.
+{: .fs-6 .fw-300 }
+
