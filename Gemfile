@@ -34,3 +34,4 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "webrick", "~> 1.8"
 gem "bulma-clean-theme"
+gem "just-the-docs"
