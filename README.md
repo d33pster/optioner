@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
 <br><br><br>
-v1.3.8
+v1.3.9
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
