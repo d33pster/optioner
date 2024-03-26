@@ -16,6 +16,10 @@ class options:
         self._shortargs = shortargs
         self._longargs = longargs
         self._compulsory_short = compulsory_short_args
+        for i in range(len(self._compulsory_short)):
+            self._compulsory_short[i] = '-' + self._compulsory_short[i]
+        for i in range(len(self._compulsory_long)):
+            self._compulsory_long[i] = '--' + self._compulsory_long[i]
         self._compulsory_long = compulsory_long_args
         self._gotargs = []
         self._argcheck = True
