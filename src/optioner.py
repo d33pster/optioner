@@ -76,18 +76,20 @@ class options:
         else:
             arg = '-' + arg
         
-        for i in range(len(self._args)):
-            if self._args[i] == arg:
-                
-                if i == len(self._args)-1:
-                    raise RuntimeError(f'OPTIONER: No Value provide for {self._args[i]}.')
-                elif i == len(self._args) - (count+1):
-                    raise RuntimeError(f'OPTIONER: EXPECTING {count} values for {self._args[i]}')
-                
-                result = []
-                for x in range(count):
-                    result.append(self._args[i+1+x])
-                
-                return tuple(result)
+        try:
+            for i in range(len(self._args)):
+                if self._args[i] == arg:
+                    if count==1:
+                        return self._args[i+1]
+                    else:
+                        k = 1
+                        result = []
+                        while(count>0):
+                            result.append(self._args[i+k])
+                            k += 1
+                            count -= 1
+                        return tuple(result)
+        except IndexError:
+            raise RuntimeError(f'expects {count} arguments.')
         
         return None
