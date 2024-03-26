@@ -5,7 +5,7 @@
 layout: default
 title: Home
 nav_order: 1
-permalink: /
+permalink: /home
 ---
 
 # Hey aKSDBA
