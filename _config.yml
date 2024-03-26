@@ -30,7 +30,7 @@ twitter_username: d33pster
 github_username:  d33pster
 
 # Build settings
-theme: just-the-docs
+# theme: just-the-docs
 plugins:
   - jekyll-feed
 
