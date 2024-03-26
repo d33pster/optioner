@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
 <br><br><br>
-v1.3.2
+v1.3.5
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
@@ -43,6 +43,7 @@ class options(builtins.object)
  |          shortargs (list): example: ['h', 'l', 'i', ...]
  |          longargs (list): example: ['help', 'lock', 'init', ...]
  |          gotargs (list): sys.argv[1:]
+ |          compulsort (list | optional): optional compulsory arguments
  |
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
