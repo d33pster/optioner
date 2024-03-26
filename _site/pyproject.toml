@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optioner"
+version = "1.4.1"
+description = "Argument Parser"
+requires-python = ">=3.9"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = { file = "LICENSE" }
+authors = [{name = "Soumyo Deep Gupta", email = "deep.main.ac@gmail.com"}]
+maintainers = [{name = "Soumyo Deep Gupta", email = "deep.main.ac@gmail.com"}]
+keywords = ['d33pster', 'argument-pasrser', 'args', 'parser']
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/d33pster/optioner"
+Issues = "https://github.com/d33pster/optioner/issues"
