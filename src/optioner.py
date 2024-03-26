@@ -3,14 +3,16 @@
 import re
 
 class options:
-    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list[str] = [], compulsory_long_args:list[str] = []):
+    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list[str] = [], compulsory_long_args:list[str] = [], ignore:list[str] = []):
         """init function: This runs everytime the class is called.
 
         Args:
             shortargs (list): example: ['h', 'l', 'i', ...]
             longargs (list): example: ['help', 'lock', 'init', ...]
             gotargs (list): sys.argv[1:]
-            compulsory (list | optional): compulsory args
+            compulsory_short_args (list[str] | optional): compulsory short args
+            compulsory_long_args (list[str] | optional): corresponding compulsory long args
+            ignore (list[str] | optional): if these args are found, compulsion args will be overridden. 
         """
         self._args = gotargs
         self._shortargs = shortargs
@@ -26,6 +28,8 @@ class options:
         self._argerror = 'no error'
         self._falseargs = []
 
+        self._ignore = ignore
+        
         # add '-' to the front of the args
         for i in range(len(self._shortargs)):
             self._shortargs[i] = '-' + self._shortargs[i]
@@ -72,6 +76,12 @@ class options:
                     self._argerror = f'\'{self._compulsory_short[i]}\' argument is Compulsory'
                     self._argcheck = False
                     break
+        
+        # if ignore args are present then ignore the errors
+        for x in self._ignore:
+            if x in self._gotargs:
+                self._argerror = 'no error'
+                self._argcheck = True
         
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
     
