@@ -3,7 +3,7 @@
 import re
 
 class options:
-    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory:list[str] = []):
+    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list[str] = [], compulsory_long_args:list[str] = []):
         """init function: This runs everytime the class is called.
 
         Args:
@@ -15,7 +15,8 @@ class options:
         self._args = gotargs
         self._shortargs = shortargs
         self._longargs = longargs
-        self._compulsory = compulsory
+        self._compulsory_short = compulsory_short_args
+        self._compulsory_long = compulsory_long_args
         self._gotargs = []
         self._argcheck = True
         self._argerror = 'no error'
@@ -61,11 +62,12 @@ class options:
                 self._argerror += 'not found.'
         
         # if all good then check compulsory args
-        if self._argcheck and len(self._compulsory)>0:
-            for arg in self._compulsory:
-                if arg not in self._gotargs:
-                    self._argerror = f'\'{arg}\' argument is Compulsory'
+        if self._argcheck and len(self._compulsory_short)>0 and len(self._compulsory_long):
+            for i in range(len(self._compulsory_short)):
+                if (self._compulsory_short[i] not in self._gotargs) and (self._compulsory_long[i] not in self._gotargs):
+                    self._argerror = f'\'{self._compulsory_short[i]}\' argument is Compulsory'
                     self._argcheck = False
+                    break
         
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
     
