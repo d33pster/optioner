@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
 <br><br><br>
-v1.4
+v1.4.1
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
@@ -45,6 +45,7 @@ class options(builtins.object)
  |          gotargs (list): sys.argv[1:]
  |          compulsory_short_args (list | optional): optional compulsory arguments
  |          compulsory_long_args (list | optional): corresponding optional compulsory arguments
+ |          ignore (list[str] | optional): if these args are found, compulsion args will be overridden. (suitable if you have compulsory args and you also need --help or --version args)
  |
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
