@@ -105,6 +105,6 @@ class options:
                             count -= 1
                         return tuple(result)
         except IndexError:
-            raise RuntimeError(f'expects {count} arguments.')
+            raise RuntimeError(f'{arg} expects {count} arguments.')
         
         return None
