@@ -64,6 +64,7 @@ class options:
     ...
 
     def _argparse(self):
+        ...
         # when all checks are done and all the variables have been updated.
 
         ## FOR THIS
@@ -72,13 +73,19 @@ class options:
         if self._argcheck and len(self._compulsory_short)>0 and len(self._compulsory_long)>0:
             # since length of compulsory short and long list will be same (each short arg must have a longer version), lets just take either short or long to define a range
             for i in range(len(self._compulsory_short)):
-                # if both short and longer version of an arg is not present in the found list of args, then generate error. NOTE: self._gotargs is the list of all args that are identified from the user given arguments.
+                # if both short and longer version of an arg is not present in the found list of args, then generate error. 
+                # NOTE: self._gotargs is the list of all args that are identified from the user given arguments.
                 if (self._compulsory_short[i] not in self._gotargs) and (self._compulsory_long[i] not in self._gotargs):
                     # store error and turn boolean variable to False (as there is error)
                     self._argerror = f'\'{self._compulsory_short[i]}\' or \'{self._compulsory_long[i]}\' argument is Compulsory'
                     self._argcheck = False
-                    # make sure to break out of the loop. This means if there are 2 or more compulsory arguments then this code will generate error untill all the compulsory args are given
+                    # make sure to break out of the loop. This means if there are 2 or more compulsory arguments 
+                    # then this code will generate error untill all the compulsory args are given
                     break
+        
+        ...
+    
+    ...
 ```
 
 
