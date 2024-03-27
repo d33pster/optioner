@@ -87,7 +87,7 @@ New (v1.4)
 
 Optioner provides an option to set compulsory arguments which will be necessary for the script to run.
 
-`For example:`<br>
+{: .example }
 Suppose you have a script that takes two arguments -> '-s' and '-d'. Your script needs the '-d' option everytime it is run and hence it is compulsory for the user to provide this argument. However, '-s' does not pose such a compulsion.
 
 Here's how to achieve this using Optioner:
