@@ -35,8 +35,7 @@ from optioner import options
 from sys import argv
 ```
 
-{: .highligh }
-for each arg defined in shortarg must have their long version in the longargs list in the same order.
+for each arg defined in shortarg must have their long version in the longargs list in the same order.{: .highligh }
 
 ```python
 # Now that we imported the required module, 
@@ -77,8 +76,8 @@ comp_long = ['setup']
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long)
 ```
 
-{: .note }
-This will make `-s` or `--setup` argument compulsory and will generate errors if it is not provided.
+This will make `-s` or `--setup` argument compulsory and will generate errors if it is not provided.{: .note }
+
 
 ## Compulsion Override
 
@@ -93,8 +92,8 @@ ignore = ['-h', '--help']
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long, ignore)
 ```
 
-{: .note }
-This will bypass compulsion logic.
+This will bypass compulsion logic.{: .note }
+
 
 ## Actual usage in your Scrip/Project
 
