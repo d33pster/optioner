@@ -64,4 +64,77 @@ gotargs, check, error, falseargs = optionCTRL._argparse()
 
 See the details about gotargs, check, error and falseargs [here](https://d33pster.github.io/optioner/features/#error-handling){: target='_blank' }
 
+## Compulsory Arguments with Basic Arguments
+
+Let's just pickup after importing the modules
+```python
+# while initializing, include compulsory short and long args
+
+comp_short = ['s']
+comp_long = ['setup']
+
+optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long)
+
+## NOTE: this will make '-s' or '--setup' argument compulsory and will generate errors if it is not provided.
+```
+
+## Compulsion Override
+
+With the above cases, the `setup` argument was made compulsory. But if you want to see the help text with  `help` argument, you dont necessarily need to use `setup` argument. 
+
+Here the ignore module comes in.
+```python
+# during call initialization:
+
+ignore = ['-h', '--help']
+
+optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long, ignore)
+
+## NOTE: This will bypass compulsion logic.
+```
+
+## Actual usage in your Scrip/Project
+
+Now that you know 
+
+```python
+# import modules
+
+from optioner import options
+from sys import argv
+
+# define args
+
+shortargs = ['h', 's']
+longargs = ['help', 'setup']
+compulsory_short = ['s']
+compulsory_long = ['setup']
+ignore = ['-h', '--help']
+
+# make class object
+
+optionCTRL = options(shortargs, longargs, argv[1:], compulsory_short, compulsory_long, ignore)
+
+# parse args
+
+actualargs, check, error, falseargs = optionCTRL._argparse()
+
+## define conditions ##
+
+# if there is a error in arguments, check will be false
+if not check:
+    # print error
+    print(error)
+# if no error:
+else:
+    if '-h' in actualargs or '--help' in actualargs:
+        # do something
+    elif '-s' in actualargs or '--setup' in actualargs:
+        # do something else
+    else:
+        pass
+
+
+```
+
 [ghub]: https://github.com/d33pster/optioner
