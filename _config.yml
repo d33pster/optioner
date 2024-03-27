@@ -72,7 +72,7 @@ callouts:
     color: red
   example:
     title: Example
-    color: white
+    color: green
 
 kramdown:
   syntax_highlighter_opts:
