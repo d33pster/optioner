@@ -19,8 +19,7 @@ Here are some usecases to better understand the functionalities and use them
 
 ---
 
-[Install](https://github.com/d33pster/optioner)
-{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2}
+[Install][ghub]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2}
 
 ## Basic Arguments
 
@@ -63,4 +62,6 @@ optionCTRL = options(shortargs, longargs, argv[1:])
 gotargs, check, error, falseargs = optionCTRL._argparse()
 ```
 
-See the details about gotargs, check, error and falseargs [here](https://d33pster.github.io/features/#error-handling){: target='_blank' }
+See the details about gotargs, check, error and falseargs [here](https://d33pster.github.io/optioner/features/#error-handling){: target='_blank' }
+
+[ghub]: https://github.com/d33pster/optioner
