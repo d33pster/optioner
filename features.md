@@ -79,6 +79,45 @@ class options:
     ...
 ```
 
+## Getting values of arguments (if any)
+
+With optioner, you can easily get the values specified for argument options.
+
+{: .example }
+Suppose you have an argument named `--infile` and the user is supposed to specify an infile or input file path after this argument, then optioner can easily fetch it.
+
+{: .note }
+Optioner can also fetch more than one values for a single argument.
+
+This is achieved with the `_what_is_` function.
+
+```python
+class options:
+    ...
+
+    def _what_is_(self, arg:str, count:int = 1):
+        """
+        Returns the value of the argument that is passed.
+
+        Args:
+            arg (str): argument you need the value of
+            count (int | optional): no of values you are expecting. Default is one
+
+        Returns:
+            str | tuple | None : returns value of argument or None
+        """
+        ...
+    
+    ...
+```
+
+{: .note }
+You can specify how many values you are expecting for one argument flag in the count parameter of `_what_is_`.
+
+{: .important }
+`_what_is_` returns a string if count is set to 1, which is default, Retruns a tuple if count>1 and returns none if no value is given to the argument flag.
+
+
 ## Dealing with compulsory arguments
 {: .d-inline-block }
 
