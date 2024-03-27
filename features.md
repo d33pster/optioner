@@ -123,6 +123,10 @@ class options:
 ```
 
 ## Compulsion Overrride
+{: .d-inline-block }
+
+New (v1.4.1)
+{: .label .label-green}
 
 Even after defining compulsory arguments for your script/project, you might feel the need of some arguments which will bypass the compulsion and show some data or output or perform some other task.
 
