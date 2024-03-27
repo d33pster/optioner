@@ -34,6 +34,8 @@ from optioner import options
 
 from sys import argv
 ```
+{: .highligh }
+for each arg defined in shortarg must have their long version in the longargs list in the same order.
 
 ```python
 # Now that we imported the required module, 
@@ -42,18 +44,15 @@ from sys import argv
 # for this, first define the arguments that needs to be passsed
 # to the options class. --> shortargs, longargs
 
-# NOTE: for each arg defined in shortarg must have their long version in the longargs list in the same order.
-
 shortargs = ['h', 's'] # two short arguments will be created -> '-h' and '-s'
 
 longargs = ['help', 'setup'] # long versions of short args --> '--help' and '--setup'
 
 # now lets initialize the class
 optionCTRL = options(shortargs, longargs, argv[1:])
-
-# NOTE: we used argv[1:] which means a list of all the elements in the argv list 
-#except the first one. The first element is always the current filename/filepath/file-relpath
 ```
+{: .note }
+we used `argv[1:]` which means a list of all the elements in the argv list except the first one. The first element is always the current filename/filepath/file-relpath
 
 ```python
 # now lets parse the arguments in-accordance with the defined arguments
@@ -74,9 +73,9 @@ comp_short = ['s']
 comp_long = ['setup']
 
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long)
-
-## NOTE: this will make '-s' or '--setup' argument compulsory and will generate errors if it is not provided.
 ```
+{: .note }
+This will make `-s` or `--setup` argument compulsory and will generate errors if it is not provided.
 
 ## Compulsion Override
 
@@ -89,9 +88,9 @@ Here the ignore module comes in.
 ignore = ['-h', '--help']
 
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long, ignore)
-
-## NOTE: This will bypass compulsion logic.
 ```
+{: .note }
+This will bypass compulsion logic.
 
 ## Actual usage in your Scrip/Project
 
@@ -133,8 +132,7 @@ else:
         # do something else
     else:
         pass
-
-
 ```
+###### <p align='center'>END OF USE CASES</p>
 
 [ghub]: https://github.com/d33pster/optioner
