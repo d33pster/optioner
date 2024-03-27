@@ -35,7 +35,8 @@ from optioner import options
 from sys import argv
 ```
 
-{: .highlight } For each arg defined in shortarg must have their long version in the longargs list in the same order.
+{: .highlight }
+For each arg defined in shortarg must have their long version in the longargs list in the same order.
 
 
 ```python
@@ -53,7 +54,8 @@ longargs = ['help', 'setup'] # long versions of short args --> '--help' and '--s
 optionCTRL = options(shortargs, longargs, argv[1:])
 ```
 
-{: .note } We used `argv[1:]` which means a list of all the elements in the argv list except the first one. The first element is always the current filename/filepath/file-relpath.
+{: .note }
+We used `argv[1:]` which means a list of all the elements in the argv list except the first one. The first element is always the current filename/filepath/file-relpath.
 
 
 ```python
@@ -77,7 +79,8 @@ comp_long = ['setup']
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long)
 ```
 
-{: .note } This will make `-s` or `--setup` argument compulsory and will generate errors if it is not provided.
+{: .note }
+This will make `-s` or `--setup` argument compulsory and will generate errors if it is not provided.
 
 
 ## Compulsion Override
@@ -93,7 +96,8 @@ ignore = ['-h', '--help']
 optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long, ignore)
 ```
 
-{: .note } This will bypass compulsion logic.
+{: .note }
+This will bypass compulsion logic.
 
 
 ## Actual usage in your Scrip/Project
