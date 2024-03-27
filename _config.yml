@@ -70,6 +70,9 @@ callouts:
   warning:
     title: Warning
     color: red
+  example:
+    title: Example
+    color: white
 
 kramdown:
   syntax_highlighter_opts:
