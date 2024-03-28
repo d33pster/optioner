@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
 <br><br><br>
-v1.4.1
+v1.4.2
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
@@ -15,7 +15,7 @@ v1.4.1
 </p><br>
 
 ## About
-Optioner is a lightweight Argument Parser and easy to use.
+Optioner is a lightweight Argument Parser and easy to use. Full documentation [here](https://d33pster.github.io/optioner/)
 
 ## Installation
 ```console
@@ -36,7 +36,7 @@ class options(builtins.object)
  |
  |  Methods defined here:
  |
- |  __init__(self, shortargs: list, longargs: list, gotargs: list)
+ |  __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list =[], compulsory_long_args:list =[], ignore: list[str] [], ifthisthennotthat:list[list[str]] = [[],[]])
  |      init function: This runs everytime the class is called.
  |
  |      Args:
@@ -46,6 +46,7 @@ class options(builtins.object)
  |          compulsory_short_args (list | optional): optional compulsory arguments
  |          compulsory_long_args (list | optional): corresponding optional compulsory arguments
  |          ignore (list[str] | optional): if these args are found, compulsion args will be overridden. (suitable if you have compulsory args and you also need --help or --version args)
+ |          ifthisthennotthat (list[list[str]] | optional): if you have a condition where if a specific argument is provided, then some other argument cannot be provided.
  |
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
