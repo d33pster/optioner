@@ -89,7 +89,7 @@ With the above cases, the `setup` argument was made compulsory. But if you want 
 
 Here the ignore module comes in.
 ```python
-# during call initialization:
+# during initialization:
 
 ignore = ['-h', '--help']
 
@@ -99,6 +99,18 @@ optionCTRL = options(shortargs, longargs, argv[1:], comp_short, comp_long, ignor
 {: .note }
 This will bypass compulsion logic.
 
+## If this then not that
+
+Making one or more arguments mutually exclusive can be done by this feature.
+
+```python
+# during init
+
+ifthisthennotthat = [['h','help'], ['v', 'version']]
+# NOTE: this will make -v or --version and -h or --help mutually exclusive
+
+optionCTRL= options(shortargs, longargs, argv[1:], comp_short, comp_long, ignore, ifthisthennotthat)
+```
 
 ## Actual usage in your Scrip/Project
 
@@ -112,15 +124,16 @@ from sys import argv
 
 # define args
 
-shortargs = ['h', 's']
-longargs = ['help', 'setup']
+shortargs = ['h', 's', 'v']
+longargs = ['help', 'setup', 'version']
 compulsory_short = ['s']
 compulsory_long = ['setup']
-ignore = ['-h', '--help']
+ignore = ['-h', '--help', '-v', '--version']
+ifthisthennotthat = [['h', 'help'],['v', 'version']]
 
 # make class object
 
-optionCTRL = options(shortargs, longargs, argv[1:], compulsory_short, compulsory_long, ignore)
+optionCTRL = options(shortargs, longargs, argv[1:], compulsory_short, compulsory_long, ignore, ifthisthennotthat)
 
 # parse args
 

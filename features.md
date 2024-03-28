@@ -47,7 +47,8 @@ class options:
             gotargs (list): sys.argv[1:]
             compulsory_short_args (list[str] | optional): compulsory short args
             compulsory_long_args (list[str] | optional): corresponding compulsory long args
-            ignore (list[str] | optional): if these args are found, compulsion args will be overridden. 
+            ignore (list[str] | optional): if these args are found, compulsion args will be overridden.
+            ifthisthennotthat (list[list[str]] | optional): if you have a condition where if a specific argument is provided, then some other argument cannot be provided.
         """
 
         ...
@@ -121,7 +122,7 @@ You can specify how many values you are expecting for one argument flag in the c
 ## Dealing with compulsory arguments
 {: .d-inline-block }
 
-New (v1.4)
+v1.4
 {: .label .label-green}
 
 Optioner provides an option to set compulsory arguments which will be necessary for the script to run.
@@ -164,7 +165,7 @@ class options:
 ## Compulsion Overrride
 {: .d-inline-block }
 
-New (v1.4.1)
+v1.4.1
 {: .label .label-green}
 
 Even after defining compulsory arguments for your script/project, you might feel the need of some arguments which will bypass the compulsion and show some data or output or perform some other task.
@@ -195,5 +196,51 @@ And Finally:
         ...
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
 ```
+
+## If this then not that
+{: .d-inline-block }
+
+New (v1.4.2)
+{: .label .label-green }
+
+Suppose you want to have arguments that can only exist if some other argument is not there.
+
+{: .example }
+You have `--server` argument which can not exist when `--client` argument is there. Then this feature is for you.
+
+This is achieved with:
+```python
+class options:
+    ...
+
+    def _argparse(self):
+        ...
+
+        # if this then not that
+        ## ifthisthennotthat = [[if this], [this cannot be there]]
+        ifthis = self._ifthisnotthat[0]
+        thennotthat = self._ifthisnotthat[1]
+        
+        for x in ifthis:
+            if len(x)>2:
+                x = '--' + x
+            else:
+                x = '-' + x
+            
+            if x in self._gotargs:
+                for y in thennotthat:
+                    if len(y)>2:
+                        y = '--' + y
+                    else:
+                        y = '-' + y
+                    
+                    if y in self._gotargs:
+                        self._argcheck = False
+                        self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
+        ...
+    
+    ...
+```
+
 
 [issues]: https://github.com/d33pster/optioner/issues
