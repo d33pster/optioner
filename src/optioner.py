@@ -3,7 +3,7 @@
 import re
 
 class options:
-    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list[str] = [], compulsory_long_args:list[str] = [], ignore:list[str] = []):
+    def __init__(self, shortargs: list, longargs: list, gotargs: list, compulsory_short_args:list[str] = [], compulsory_long_args:list[str] = [], ignore:list[str] = [], ifthisthennotthat:list[list[str]] = [[],[]]):
         """init function: This runs everytime the class is called.
 
         Args:
@@ -13,6 +13,7 @@ class options:
             compulsory_short_args (list[str] | optional): compulsory short args
             compulsory_long_args (list[str] | optional): corresponding compulsory long args
             ignore (list[str] | optional): if these args are found, compulsion args will be overridden. 
+            ifthisthennotthat (list[list[str]] | optional): if you have a condition where if a specific argument is provided, then some other argument cannot be provided.
         """
         self._args = gotargs
         self._shortargs = shortargs
@@ -23,6 +24,7 @@ class options:
             self._compulsory_short[i] = '-' + self._compulsory_short[i]
         for i in range(len(self._compulsory_long)):
             self._compulsory_long[i] = '--' + self._compulsory_long[i]
+        self._ifthisnotthat = ifthisthennotthat
         self._gotargs = []
         self._argcheck = True
         self._argerror = 'no error'
@@ -76,6 +78,28 @@ class options:
                     self._argerror = f'\'{self._compulsory_short[i]}\' argument is Compulsory'
                     self._argcheck = False
                     break
+        
+        # if this then not that
+        ## ifthisthennotthat = [[if this], [this cannot be there]]
+        ifthis = self._ifthisnotthat[0]
+        thennotthat = self._ifthisnotthat[1]
+        
+        for x in ifthis:
+            if len(x)>2:
+                x = '--' + x
+            else:
+                x = '-' + x
+            
+            if x in self._gotargs:
+                for y in thennotthat:
+                    if len(y)>2:
+                        y = '--' + y
+                    else:
+                        y = '-' + y
+                    
+                    if y in self._gotargs:
+                        self._argcheck = False
+                        self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
         
         # if ignore args are present then ignore the errors
         for x in self._ignore:
