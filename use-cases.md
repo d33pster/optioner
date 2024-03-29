@@ -9,7 +9,7 @@ permalink: /use-cases/
 {: .no_toc }
 
 Here are some usecases to better understand the functionalities and use them
-{: fs-6 .fw-300 }
+{: .fs-6 .fw-300 }
 
 ## Table of Contents
 {: .no_toc .text-delta }
