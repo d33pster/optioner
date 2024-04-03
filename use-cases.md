@@ -129,7 +129,8 @@ longargs = ['help', 'setup', 'version']
 compulsory_short = ['s']
 compulsory_long = ['setup']
 ignore = ['-h', '--help', '-v', '--version']
-ifthisthennotthat = [['h', 'help'],['v', 'version']]
+ifthisthennotthat = [['h', 'help'],['v', 'version'], ...] # must be even pairs, here this means if -h or --help is present, -v or --version cannot be there.
+# there can be more such pairs.
 
 # make class object
 
