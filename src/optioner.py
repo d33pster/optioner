@@ -113,6 +113,15 @@ class options:
             if x in self._gotargs:
                 self._argerror = 'no error'
                 self._argcheck = True
+                # but if other args are present, raise an error
+                for y in self._shortargs:
+                    if y!=x and y in self._gotargs:
+                        self._argcheck = False
+                        self._argerror = f'when {x} argument is passed, No other argument should be there. Please remove {y}'
+                for y in self._longargs:
+                    if y!=x and y in self._gotargs:
+                        self._argcheck = False
+                        self._argerror = f'when {x} argument is passed, No other argument should be there. Please remove {y}'
         
         return self._gotargs, self._argcheck, self._argerror, self._falseargs
     
