@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
 <br><br><br>
-v1.4.2
+v1.4.4
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
@@ -25,6 +25,9 @@ $ pip install optioner
 ## Usage
 
 ###### initialization
+
+[ [Full Documentation](https://d33pster.github.io/optioner/) ]
+
 ```console
 >>> from optioner import options
 >>> help(options)
