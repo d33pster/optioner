@@ -81,25 +81,32 @@ class options:
         
         # if this then not that
         ## ifthisthennotthat = [[if this], [this cannot be there]]
-        ifthis = self._ifthisnotthat[0]
-        thennotthat = self._ifthisnotthat[1]
         
-        for x in ifthis:
-            if len(x)>2:
-                x = '--' + x
-            else:
-                x = '-' + x
-            
-            if x in self._gotargs:
-                for y in thennotthat:
-                    if len(y)>2:
-                        y = '--' + y
+        # if ifthisthennotthat has pairs
+        if len(self._ifthisnotthat)%2==0:
+            for i in range(0,len(self._ifthisnotthat), 2):
+                ifthis = self._ifthisnotthat[i]
+                thennotthat = self._ifthisnotthat[i+1]
+                
+                for x in ifthis:
+                    if len(x)>2:
+                        x = '--' + x
                     else:
-                        y = '-' + y
+                        x = '-' + x
                     
-                    if y in self._gotargs:
-                        self._argcheck = False
-                        self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
+                    if x in self._gotargs:
+                        for y in thennotthat:
+                            if len(y)>2:
+                                y = '--' + y
+                            else:
+                                y = '-' + y
+                            
+                            if y in self._gotargs:
+                                self._argcheck = False
+                                self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
+        else:
+            self._argcheck = False
+            self._argerror = 'ifthisthennotthat param value mismatch.'
         
         # if ignore args are present then ignore the errors
         for x in self._ignore:
