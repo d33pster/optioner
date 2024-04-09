@@ -5,8 +5,9 @@
 ![Static Badge](https://img.shields.io/badge/Windows-supported-blue?style=flat&logo=Windows&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/MacOS-supported-blue?style=flat&logo=Macintosh&logoColor=red)
 ![Static Badge](https://img.shields.io/badge/python-only-green?style=flat&logo=python&logoColor=red)
+![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/Optioner)
+
 <br><br><br>
-v1.4.6
 
 <p align='center'>
     <a href='#Installation'>Installation</a>
