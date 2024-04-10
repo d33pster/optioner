@@ -141,20 +141,19 @@ class options:
         else:
             arg = '-' + arg
         
-        try:
-            for i in range(len(self._args)):
-                if self._args[i] == arg:
-                    if count==1:
-                        return self._args[i+1]
-                    else:
-                        k = 1
-                        result = []
-                        while(count>0):
-                            result.append(self._args[i+k])
-                            k += 1
-                            count -= 1
-                        return tuple(result)
-        except IndexError:
-            raise RuntimeError(f'{arg} expects {count} arguments.')
+        index = self._args.index(arg)
         
-        return None
+        result: list[str] = []
+        
+        try:
+            for i in range(index+1, index+1+count):
+                result.append(self._args[i])
+        except IndexError:
+            raise RuntimeError(f'\'{arg}\' expects {count} arg(s).')
+        
+        if len(result)==0:
+            return None
+        elif len(result)==1:
+            return result[0]
+        elif len(result)>1:
+            return tuple(result)
