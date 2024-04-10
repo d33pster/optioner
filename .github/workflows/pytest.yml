@@ -1,4 +1,4 @@
-name: Python Library CI
+name: Feature Tests
 
 on:
   push:
