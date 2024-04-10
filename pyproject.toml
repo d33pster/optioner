@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "optioner"
-version = "1.4.7"
+version = "1.4.8"
 description = "Argument Parser"
-requires-python = ">=3.0"
+requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
