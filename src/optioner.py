@@ -117,11 +117,6 @@ class options:
                             if y in self._gotargs:
                                 self._argcheck = False
                                 self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
-                            else:
-                                # if argument is undefined
-                                self._argcheck = False
-                                self._argerror = f"undefined argument \'{y}\'"
-                                break
         else:
             self._argcheck = False
             self._argerror = 'ifthisthennotthat param value mismatch.'
