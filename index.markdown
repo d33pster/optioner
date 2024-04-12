@@ -26,12 +26,12 @@ Optioner is in beta phase and is constantly evolving so keep checking this docum
 Optioner can be installed easily using pip.
 
 {: .warning }
-Install only the latest version as this software is still in beta stage and keeps on getting updates. Last Stable version: _v1.4.1_
+Install only the latest version as this software is still in beta stage and keeps on getting updates. Last Stable version: _v1.5.2_
 
 
 ```bash
 # install using pip
-pip install optioner==1.4.1
+pip install optioner==1.5.2
 ```
 
 ## Uninstall
