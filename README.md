@@ -2,6 +2,7 @@
 [![Continuous Deployment](https://github.com/d33pster/optioner/actions/workflows/cont-dep.yml/badge.svg)](https://github.com/d33pster/optioner/actions/workflows/cont-dep.yml)
 [![Feature Tests](https://github.com/d33pster/optioner/actions/workflows/pytest.yml/badge.svg)](https://github.com/d33pster/optioner/actions/workflows/pytest.yml)
 [![Build status](https://ci.appveyor.com/api/projects/status/qoaeiypaxnonrosv?svg=true)](https://ci.appveyor.com/project/d33pster/optioner)
+[![codecov](https://codecov.io/gh/d33pster/optioner/graph/badge.svg?token=NE6E28GWCK)](https://codecov.io/gh/d33pster/optioner)
 ![PyPI - Version](https://img.shields.io/pypi/v/optioner)
 ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fd33pster%2Foptioner%2Fmain%2Fpyproject.toml)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/optioner)
