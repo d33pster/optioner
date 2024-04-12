@@ -149,12 +149,35 @@ class options:
         Returns:
             str | tuple | None_: returns value of argument or None
         """
-        if len(arg)>2:
-            arg = '--' + arg
-        else:
-            arg = '-' + arg
+        # if len(arg)>2:
+        #     arg = '--' + arg
+        # else:
+        #     arg = '-' + arg
         
-        index = self._args.index(arg)
+        if '-'+arg in self._shortargs:
+            # if arg provided is shortarg
+            arg = '-'+arg
+            try:
+                # try finding the index of it.
+                index = self._args.index(arg)
+            except ValueError:
+                # if arg is not provided, find the corresponding long arg
+                sindex = self._shortargs.index(arg)
+                longarg = self._longargs[sindex]
+                # find the index of the corresponding long arg
+                index = self._args.index(longarg)
+        elif '--'+arg in self._longargs:
+            # if arg provided is longarg
+            arg = '--'+arg
+            try:
+                # try finding the index of it
+                index = self._args.index(arg)
+            except ValueError:
+                # if arg is not provided, find the corresponding short arg
+                lindex = self._longargs.index(arg)
+                shortarg = self._shortargs[lindex]
+                # find the index of the corresponding short arg
+                index = self._args.index(shortarg)
         
         result: list[str] = []
         
