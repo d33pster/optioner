@@ -118,11 +118,28 @@ _what_is_(self, arg: str)
 usage:
 ```console
 >>> optionCTRL = options(shortargs, longargs, gotargs)
->> optionCTRL._argparse()
+>>> args, check, error, falseargs = optionCTRL._argparse()
 
->>> optionCTRL._what_is_(shortargs[0])
+>>> optionCTRL._what_is_(args[0])
 
 or 
 
->>> optionCTRL._what_is_(longargs[0])
+>>> optionCTRL._what_is_(args[1])
+```
+```python
+# NOTE: if the user provided a longarg say --input, _what_is_ can be used with the corresponding shortarg, in this case it is -i, to find the value.
+
+## For example:
+optCTRL = options(shortargs, longargs, argv[1:])
+args, check, error, falseargs = optCTRL._argparse()
+
+# now it doesn't matter a longarg or a short arg is passed.
+# calling _what_is_ with the shortarg or longarg will return the value.
+
+if '-i' in args or '--input' in args:
+    print(optCTRL._what_is_('i')) # or print(optCTRL._what_is_('input'))
+
+# so if the user provided --input, if we call _what_is('i'), we can get the value.
+# or if the user provided -i, we can call _what_is_('input'), to get the value.
+# NOTE: this is an ease of use feature, only available for v1.5.2 and above.
 ```
