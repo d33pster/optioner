@@ -89,21 +89,39 @@ class options:
                 thennotthat = self._ifthisnotthat[i+1]
                 
                 for x in ifthis:
-                    if len(x)>2:
-                        x = '--' + x
+                    # if len(x)>2:
+                    #     x = '--' + x
+                    # else:
+                    #     x = '-' + x
+                    
+                    if "--"+x in self._longargs:
+                        x = '--'+x
+                    elif '-'+x in self._shortargs:
+                        x = '-'+x
                     else:
-                        x = '-' + x
+                        self._argcheck = False
+                        self._argerror = f'undefined argument \'{x}\''
                     
                     if x in self._gotargs:
                         for y in thennotthat:
-                            if len(y)>2:
-                                y = '--' + y
-                            else:
-                                y = '-' + y
+                            # if len(y)>2:
+                            #     y = '--' + y
+                            # else:
+                            #     y = '-' + y
+                            
+                            if '--'+y in self._longargs:
+                                y = '--'+y
+                            elif '-'+y in self._shortargs:
+                                y = '-'+y
                             
                             if y in self._gotargs:
                                 self._argcheck = False
                                 self._argerror = f'\'{x}\' and \'{y}\' cannot be used together.'
+                            else:
+                                # if argument is undefined
+                                self._argcheck = False
+                                self._argerror = f"undefined argument \'{y}\'"
+                                break
         else:
             self._argcheck = False
             self._argerror = 'ifthisthennotthat param value mismatch.'
