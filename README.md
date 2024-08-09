@@ -1,4 +1,5 @@
 # optioner
+[![Downloads](https://static.pepy.tech/badge/optioner)](https://pepy.tech/project/optioner)
 [![Continuous Deployment](https://github.com/d33pster/optioner/actions/workflows/cont-dep.yml/badge.svg)](https://github.com/d33pster/optioner/actions/workflows/cont-dep.yml)
 [![Feature Tests](https://github.com/d33pster/optioner/actions/workflows/pytest.yml/badge.svg)](https://github.com/d33pster/optioner/actions/workflows/pytest.yml)
 [![Build status](https://ci.appveyor.com/api/projects/status/qoaeiypaxnonrosv?svg=true)](https://ci.appveyor.com/project/d33pster/optioner)
